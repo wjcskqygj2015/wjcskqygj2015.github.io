@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wjcskqygj2015.github.io</id>
     <title>Jiacheng Wu</title>
-    <updated>2020-02-03T03:46:12.391Z</updated>
+    <updated>2020-02-29T05:57:55.518Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wjcskqygj2015.github.io"/>
     <link rel="self" href="https://wjcskqygj2015.github.io/atom.xml"/>
@@ -10,6 +10,30 @@
     <logo>https://wjcskqygj2015.github.io/images/avatar.png</logo>
     <icon>https://wjcskqygj2015.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jiacheng Wu</rights>
+    <entry>
+        <title type="html"><![CDATA[C++ Practice About Virtual Operator ==]]></title>
+        <id>https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator</id>
+        <link href="https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator">
+        </link>
+        <updated>2020-02-29T05:06:53.000Z</updated>
+        <content type="html"><![CDATA[<p>In Java, there exists classical functions in Object, that is equals</p>
+<pre><code class="language-Java">public boolean equals(Object other) {
+    if(other == null) return false;
+    if(!(other instance of *CURRENT_TYPE*)) return false;
+    xxxx customized Equality for *CURRENT_TYPE*
+}
+</code></pre>
+<p>But in C++, we don't have this common equals for all classes, rather than have the operator == , which can be overload or be virtual.</p>
+<p>So can we simulate the Java's equal by overloading the virtual operator == defined in some base clasees, and overwrite in some derived class. This is involved some design patterns.</p>
+<p>One suggestion from <a href="https://stackoverflow.com/questions/565765/implementing-operator-when-using-inheritance">Stackoverflow</a>, is that do make operator== in base classes no virtual, but to call a virtual protected function which will be customized in the further dervide class. Thus this operator== should be member function, rather than the global one to utilize the polymorphisms</p>
+<pre><code class="language-c++">Class Base {
+    public: 
+        bool operator==(const )
+};
+</code></pre>
+<p>Actually, for the opartor == , what we want is the multi methods or multiple dispatch methods. It maybe better to use static polymorphisms using the Template.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[C++ Copy / Move / Elipsion]]></title>
         <id>https://wjcskqygj2015.github.io/post/c-copy-move-elipsion</id>
