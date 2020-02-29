@@ -2,18 +2,17 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>C++ Practice About Virtual Operator == | Jiacheng Wu</title>
+<title>Modern Design Patterns in C++ | Jiacheng Wu</title>
 <link rel="shortcut icon" href="https://wjcskqygj2015.github.io/favicon.ico?v=1582956023875">
 <link href="https://cdn.remixicon.com/releases/v2.1.0/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://wjcskqygj2015.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="C++ Practice About Virtual Operator == | Jiacheng Wu - Atom Feed" href="https://wjcskqygj2015.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Modern Design Patterns in C++ | Jiacheng Wu - Atom Feed" href="https://wjcskqygj2015.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="In Java, there exists classical functions in Object, that is equals
-public boolean equals(Object other) {
-    if(other =..." />
+    <meta name="description" content="We will consider different design patterns written in Modern C++
+" />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -76,36 +75,21 @@ public boolean equals(Object other) {
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              C++ Practice About Virtual Operator ==
+              Modern Design Patterns in C++
             </h2>
             <div class="post-info">
               <span>
                 2020-02-29
               </span>
               <span>
-                2 min read
+                1 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>In Java, there exists classical functions in Object, that is equals</p>
-<pre><code class="language-Java">public boolean equals(Object other) {
-    if(other == null) return false;
-    if(!(other instance of *CURRENT_TYPE*)) return false;
-    xxxx customized Equality for *CURRENT_TYPE*
-}
-</code></pre>
-<p>But in C++, we don't have this common equals for all classes, rather than have the operator == , which can be overload or be virtual.</p>
-<p>So can we simulate the Java's equal by overloading the virtual operator == defined in some base clasees, and overwrite in some derived class. This is involved some design patterns.</p>
-<p>One suggestion from <a href="https://stackoverflow.com/questions/565765/implementing-operator-when-using-inheritance">Stackoverflow</a>, is that do make operator== in base classes no virtual, but to call a virtual protected function which will be customized in the further dervide class. Thus this operator== should be member function, rather than the global one to utilize the polymorphisms</p>
-<pre><code class="language-c++">Class Base {
-    public: 
-        bool operator==(const )
-};
-</code></pre>
-<p>Actually, for the opartor == , what we want is the multi methods or multiple dispatch methods. It maybe better to use Visitor Patterns or static polymorphisms using the Template. We can consider both cases.</p>
+                <p>We will consider different design patterns written in Modern C++</p>
 
               </div>
               <div class="toc-container">
@@ -118,9 +102,9 @@ public boolean equals(Object other) {
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://wjcskqygj2015.github.io/post/c-copy-move-elipsion">
+            <a href="https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator">
               <h3 class="post-title">
-                C++ Copy / Move / Elipsion
+                C++ Practice About Virtual Operator ==
               </h3>
             </a>
           </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wjcskqygj2015.github.io</id>
     <title>Jiacheng Wu</title>
-    <updated>2020-02-29T05:57:55.518Z</updated>
+    <updated>2020-02-29T06:00:33.329Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wjcskqygj2015.github.io"/>
     <link rel="self" href="https://wjcskqygj2015.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://wjcskqygj2015.github.io/images/avatar.png</logo>
     <icon>https://wjcskqygj2015.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jiacheng Wu</rights>
+    <entry>
+        <title type="html"><![CDATA[C++ Right Reference / Move Semantic / Perfect Forwarding]]></title>
+        <id>https://wjcskqygj2015.github.io/post/c-right-reference-move-semantic-perfect-forwarding</id>
+        <link href="https://wjcskqygj2015.github.io/post/c-right-reference-move-semantic-perfect-forwarding">
+        </link>
+        <updated>2020-02-29T05:59:23.000Z</updated>
+        <content type="html"><![CDATA[<p>After we figure about the copy elision, it is time to dive deep into the right reference itself with both move semantic and perfect forwarding.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modern Design Patterns in C++]]></title>
+        <id>https://wjcskqygj2015.github.io/post/modern-design-patterns-in-c</id>
+        <link href="https://wjcskqygj2015.github.io/post/modern-design-patterns-in-c">
+        </link>
+        <updated>2020-02-29T05:58:44.000Z</updated>
+        <content type="html"><![CDATA[<p>We will consider different design patterns written in Modern C++</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[C++ Practice About Virtual Operator ==]]></title>
         <id>https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator</id>
@@ -31,7 +49,7 @@
         bool operator==(const )
 };
 </code></pre>
-<p>Actually, for the opartor == , what we want is the multi methods or multiple dispatch methods. It maybe better to use static polymorphisms using the Template.</p>
+<p>Actually, for the opartor == , what we want is the multi methods or multiple dispatch methods. It maybe better to use Visitor Patterns or static polymorphisms using the Template. We can consider both cases.</p>
 ]]></content>
     </entry>
     <entry>
