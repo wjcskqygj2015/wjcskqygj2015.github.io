@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wjcskqygj2015.github.io</id>
     <title>Jiacheng Wu</title>
-    <updated>2020-02-29T06:00:33.329Z</updated>
+    <updated>2020-03-07T02:57:14.885Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wjcskqygj2015.github.io"/>
     <link rel="self" href="https://wjcskqygj2015.github.io/atom.xml"/>
@@ -11,9 +11,29 @@
     <icon>https://wjcskqygj2015.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jiacheng Wu</rights>
     <entry>
+        <title type="html"><![CDATA[Ten Principles of Economics]]></title>
+        <id>https://wjcskqygj2015.github.io/post/ten-principles-of-economics/</id>
+        <link href="https://wjcskqygj2015.github.io/post/ten-principles-of-economics/">
+        </link>
+        <updated>2020-03-06T02:59:18.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>People Face Trade-offs</li>
+<li>The Cost of Somethin is what You Give up to Get It</li>
+<li>Rational People Think at the Margin</li>
+<li>People Respond to Incentives</li>
+<li>Trade can Make Everyone Better off</li>
+<li>Markets are usually a Good Way to Organize Economic Activity</li>
+<li>Governments can sometimes Improve Market Outcomes</li>
+<li>A Country's Standard of Living Depends on Its Ability to Produce Goods and Services</li>
+<li>Prices Rise when the Governemnt Prints too much Money</li>
+<li>Society Faces a Short-Run Trade-off between Inflation and Unemploymemt</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[C++ Right Reference / Move Semantic / Perfect Forwarding]]></title>
-        <id>https://wjcskqygj2015.github.io/post/c-right-reference-move-semantic-perfect-forwarding</id>
-        <link href="https://wjcskqygj2015.github.io/post/c-right-reference-move-semantic-perfect-forwarding">
+        <id>https://wjcskqygj2015.github.io/post/c-right-reference-move-semantic-perfect-forwarding/</id>
+        <link href="https://wjcskqygj2015.github.io/post/c-right-reference-move-semantic-perfect-forwarding/">
         </link>
         <updated>2020-02-29T05:59:23.000Z</updated>
         <content type="html"><![CDATA[<p>After we figure about the copy elision, it is time to dive deep into the right reference itself with both move semantic and perfect forwarding.</p>
@@ -21,8 +41,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Modern Design Patterns in C++]]></title>
-        <id>https://wjcskqygj2015.github.io/post/modern-design-patterns-in-c</id>
-        <link href="https://wjcskqygj2015.github.io/post/modern-design-patterns-in-c">
+        <id>https://wjcskqygj2015.github.io/post/modern-design-patterns-in-c/</id>
+        <link href="https://wjcskqygj2015.github.io/post/modern-design-patterns-in-c/">
         </link>
         <updated>2020-02-29T05:58:44.000Z</updated>
         <content type="html"><![CDATA[<p>We will consider different design patterns written in Modern C++</p>
@@ -30,8 +50,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[C++ Practice About Virtual Operator ==]]></title>
-        <id>https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator</id>
-        <link href="https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator">
+        <id>https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator/</id>
+        <link href="https://wjcskqygj2015.github.io/post/c-practice-about-virtual-operator/">
         </link>
         <updated>2020-02-29T05:06:53.000Z</updated>
         <content type="html"><![CDATA[<p>In Java, there exists classical functions in Object, that is equals</p>
@@ -46,16 +66,36 @@
 <p>One suggestion from <a href="https://stackoverflow.com/questions/565765/implementing-operator-when-using-inheritance">Stackoverflow</a>, is that do make operator== in base classes no virtual, but to call a virtual protected function which will be customized in the further dervide class. Thus this operator== should be member function, rather than the global one to utilize the polymorphisms</p>
 <pre><code class="language-c++">Class Base {
     public: 
-        bool operator==(const )
+        bool operator==(const Base&amp; other) const {
+            if(typeid(*this) == typeid(other)) {
+                return this-&gt;equals(other);
+            } else {
+                return false;
+            }
+        }
+    protected:
+        virtual bool equals(const Base&amp; other) const {
+            return true;
+        }
+};
+
+class Derive : public Base {
+    protected:
+        virtual bool equals(const Base&amp; other_) const override {
+            assert(dynamic_cast&lt;Derive*&gt;(&amp;other) != nullptr);
+            const Derive&amp; other = static_cast&lt;Derive&amp;&gt;(other_);
+            return {{use this and other to do concrete compare}};
+        }
 };
 </code></pre>
+<p>Noticed that since we have Virtual Function Table for both Base and Derive. Now if we use typeid on the Base reference bound on the Derive Object, the typeid operator will return the Type Identifier for Derive objects. Thus, using typeid can judge two objects have similar types. Then we use virtual equals function to create a customization point for Derive objects, and is called from operator==. In the Derive Class, we only need to override the equals, and we can use static_assert to cast the Base refrence due to the check in operator==. Finally, we can now consider we have two Derive objects and do the comparation frpm their contents.</p>
 <p>Actually, for the opartor == , what we want is the multi methods or multiple dispatch methods. It maybe better to use Visitor Patterns or static polymorphisms using the Template. We can consider both cases.</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[C++ Copy / Move / Elipsion]]></title>
-        <id>https://wjcskqygj2015.github.io/post/c-copy-move-elipsion</id>
-        <link href="https://wjcskqygj2015.github.io/post/c-copy-move-elipsion">
+        <id>https://wjcskqygj2015.github.io/post/c-copy-move-elipsion/</id>
+        <link href="https://wjcskqygj2015.github.io/post/c-copy-move-elipsion/">
         </link>
         <updated>2020-02-03T03:23:44.000Z</updated>
         <content type="html"><![CDATA[<h1 id=""></h1>
@@ -63,8 +103,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello, I am Jiacheng Wu]]></title>
-        <id>https://wjcskqygj2015.github.io/post/hello-gridea</id>
-        <link href="https://wjcskqygj2015.github.io/post/hello-gridea">
+        <id>https://wjcskqygj2015.github.io/post/hello-gridea/</id>
+        <link href="https://wjcskqygj2015.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <content type="html"><![CDATA[<p>👏  Welcome to My Websites<br>
