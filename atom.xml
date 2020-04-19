@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wjcskqygj2015.github.io</id>
     <title>Jiacheng Wu</title>
-    <updated>2020-04-19T14:11:41.016Z</updated>
+    <updated>2020-04-19T14:13:16.384Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wjcskqygj2015.github.io"/>
     <link rel="self" href="https://wjcskqygj2015.github.io/atom.xml"/>
@@ -46,6 +46,8 @@
         </link>
         <updated>2020-02-29T05:58:44.000Z</updated>
         <content type="html"><![CDATA[<p>We will consider different design patterns written in Modern C++</p>
+<p>Till now, I use a proxy patterns to represent a unique semantic proxy for shared resource. Here I guess the proxy patterns is really useful when making the interface consistent.</p>
+<p>The case is:</p>
 ]]></content>
     </entry>
     <entry>
